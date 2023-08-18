@@ -40,18 +40,8 @@ export async function saveRecordData(key, json) {
     let result = 'done'
     console.log('key',key)
     try {
-        const existingData = await AsyncStorage.getItem('record')
-        // const parsedData = JSON.parse(existingData) || {}
-        // const currentDateData= parsedData[json.currentDate] || []
-       
-        let parsedData;
-
-        if (existingData) {
-        parsedData = JSON.parse(existingData);
-        } 
-        else {
-        parsedData = {};
-        }
+        const existingData = await AsyncStorage.getItem(key)
+        let parsedData = existingData ? JSON.parse(existingData) : {}
 
         const currentDateData = parsedData[json.currentDate];
 
