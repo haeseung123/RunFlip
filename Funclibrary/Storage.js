@@ -38,7 +38,6 @@ export async function getJsonData(key) {
 
 export async function saveRecordData(key, json) {
     let result = 'done'
-    console.log('key',key)
     try {
         const existingData = await AsyncStorage.getItem(key)
         let parsedData = existingData ? JSON.parse(existingData) : {}
@@ -52,10 +51,7 @@ export async function saveRecordData(key, json) {
             parsedData[json.currentDate] = [json.data]
         }
 
-        await AsyncStorage.setItem('record', JSON.stringify(parsedData))
-        console.log('data',parsedData)
         return result
-
     }
     catch (e) {
         result = 'unexpected error'
