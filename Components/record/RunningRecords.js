@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import { MaterialIcons } from '@expo/vector-icons';
+import { useNavigation } from "@react-navigation/native";
 
 import { getJsonData } from "../../Funclibrary/Storage";
 import runningRecordStyles from "../../Styles/record/runningRecordStyles";
 
 export default function RunningRecords() {
+    const navigation = useNavigation()
+
     const [recordData, setRecordData] = useState([])
     // const [isLoading, setIsLoading] = useState(true)
 
@@ -12,16 +16,11 @@ export default function RunningRecords() {
         async function getAllData() {
             const result = await getJsonData('record')
             const dataArray = Object.entries(result.value)
-            // console.log('test1', dataArray)
             setRecordData(dataArray)
-            // console.log('test2', recordData)
-            // setIsLoading(false)
         }
         
         getAllData()
     }, [])
-
-    // console.log('test3', recordData)
 
 
     const groupDataByMonth  = (data) => {
@@ -50,7 +49,9 @@ export default function RunningRecords() {
     const groupedRecordData = groupDataByMonth(recordData)
 
     const handleInnerItemPress = (data) => {
-        // console.log(data)
+        navigation.navigate('상세 기록', {
+            detailData: data
+        })
     }
 
     const renderInnerItem = (item) => {
@@ -76,7 +77,8 @@ export default function RunningRecords() {
                     <Text>{item.comment}</Text>
                     <Text style={runningRecordStyles.itemData}>{item.elapsedTime} / {item.totalDistance} / {item.pace}</Text>
                 </View>
-                <View>
+                <View style={runningRecordStyles.icon}>
+                    <MaterialIcons name="keyboard-arrow-right" size={24} color="black" />
                 </View>
             </TouchableOpacity>
         )
@@ -93,7 +95,7 @@ export default function RunningRecords() {
                     renderItem={({ item }) => renderInnerItem(item)}
                 />
             </View>
-        );
+        )
     }
 
     return (

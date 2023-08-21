@@ -8,10 +8,10 @@ export default StyleSheet.create({
         alignItems: 'center'
     },
     monthKey: {
-        fontSize: normalizeSize(24),
+        fontSize: normalizeSize(22),
         fontWeight: 'bold',
         marginTop: normalizeSize(20),
-        marginBottom: normalizeSize(10)
+        marginBottom: normalizeSize(5)
     },
     innerItemWrap: {
         backgroundColor: 'white',
@@ -41,6 +41,11 @@ export default StyleSheet.create({
     itemData: {
         color: '#4B4B4B',
         fontWeight: '500'
+    },
+    icon: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        marginLeft: normalizeSize(70)
     }
 
 })

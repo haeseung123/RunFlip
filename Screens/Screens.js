@@ -3,7 +3,8 @@ import { Button, View } from "react-native";
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from './HomeScreen'
-import RecordScreen from './record/RecordScreen'
+import RecordsScreen from './record/RecordsScreen'
+import DetailScreen from "./record/DetailScreen";
 import StartScreen from './start/StartScreen'
 import EndScreen from "./start/EndScreen";
 import ChallengeScreen from './challenge/ChallengeScreen'
@@ -33,9 +34,17 @@ export default function Screens() {
             {/** Record Screen **/}
             <Stack.Screen 
                 name="전체 기록"
-                component={RecordScreen}
+                component={RecordsScreen}
                 options={{
                     headerLeft: _=> (<View></View>), //뒤로가기 버튼 가리는 꼼수
+                }}
+            />
+            {/** detail Screen **/}
+            <Stack.Screen 
+                name="상세 기록"
+                component={DetailScreen}
+                options={{
+                    headerLeft: _=> (<View></View>)
                 }}
             />
             {/** Start Screen **/}

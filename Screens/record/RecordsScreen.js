@@ -4,7 +4,7 @@ import { View, Text } from "react-native";
 import RunningRecords from "../../Components/record/RunningRecords";
 import Menubar from "../../Components/Menubar";
 
-export default function RecordScreen() {
+export default function RecordsScreen() {
     
 
     return (
