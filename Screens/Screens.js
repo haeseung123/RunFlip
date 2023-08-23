@@ -11,15 +11,20 @@ import ChallengeScreen from './challenge/ChallengeScreen'
 import MypageScreen from './mypage/MypageScreen'
 
 import ConfirmButton from "../Components/start/ConfirmButton";
+import DeleteButton from "../Components/record/DeleteButton";
 
 const Stack = createNativeStackNavigator()
 
 export default function Screens() {
     const [data, setData] = useState(null)
+
     const confirmData = (confirmData) => {
         setData(confirmData)
     }
 
+    const deleteData = (deleteData) => {
+        setData(deleteData)
+    }
 
     return (
         <Stack.Navigator>
@@ -42,11 +47,14 @@ export default function Screens() {
             {/** detail Screen **/}
             <Stack.Screen 
                 name="상세 기록"
-                component={DetailScreen}
+                // component={DetailScreen}
                 options={{
-                    headerLeft: _=> (<View></View>)
+                    headerLeft: _=> (<View></View>),
+                    headerRight: _=> (<DeleteButton data={data}></DeleteButton>)
                 }}
-            />
+            >
+                {props => <DetailScreen {...props} onDeleteData={deleteData} />}
+            </Stack.Screen>
             {/** Start Screen **/}
             <Stack.Screen 
                 name="start"

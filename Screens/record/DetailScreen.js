@@ -6,11 +6,16 @@ import commentStyles from "../../Styles/start/commentStyles";
 import endScreenStyles from "../../Styles/start/endScreenStyles";
 import { normalizeSize } from "../../Funclibrary/GlobalFunc";
 
-export default function DetailScreen({ route }) {
-    //메모 수정 기능 추가하기?
+import { deleteRecordData } from "../../Funclibrary/Storage";
 
+export default function DetailScreen({ route, onDeleteData }) {
+    //메모 수정 기능 추가하기?
     const { detailData } = route.params
     const { calories, comment, coordinates, elapsedTime, endTime, pace, totalDistance } = detailData
+
+    useEffect(_=> {
+        onDeleteData(detailData)
+    }, [])
 
     return (
         <View style={endScreenStyles.container}>

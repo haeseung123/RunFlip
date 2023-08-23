@@ -2,23 +2,26 @@ import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
+import { useIsFocused } from '@react-navigation/native';
 
 import { getJsonData } from "../../Funclibrary/Storage";
 import runningRecordStyles from "../../Styles/record/runningRecordStyles";
 
 export default function RunningRecords() {
     const navigation = useNavigation()
-
+    const isFocused = useIsFocused()
     const [recordData, setRecordData] = useState([])
     // const [isLoading, setIsLoading] = useState(true)
 
+
+    const getAllData = async () => {
+        const result = await getJsonData('record')
+        const dataArray = Object.entries(result.value)
+        setRecordData(dataArray)
+    }
+
+
     useEffect(() => {
-        async function getAllData() {
-            const result = await getJsonData('record')
-            const dataArray = Object.entries(result.value)
-            setRecordData(dataArray)
-        }
-        
         getAllData()
     }, [])
 
@@ -88,7 +91,14 @@ export default function RunningRecords() {
         const [month, data] = item
         return (
             <View key={month} style={runningRecordStyles.monthKeyWrap}>
-                <Text style={runningRecordStyles.monthKey}>{month}</Text>
+                {
+                    data.length !== 0
+                    ?
+                    <Text style={runningRecordStyles.monthKey}>{month}</Text>
+                    :
+                    <View></View>
+                }
+                
                 <FlatList 
                     keyExtractor={(item, index) => index.toString()}
                     data={data.reverse()}

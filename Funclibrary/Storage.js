@@ -51,10 +51,39 @@ export async function saveRecordData(key, json) {
             parsedData[json.currentDate] = [json.data]
         }
 
+        await AsyncStorage.setItem('record', JSON.stringify(parsedData))
         return result
+
     }
     catch (e) {
         result = 'unexpected error'
         return { result, mesaage: '알 수 없는 이유로 저장에 실패 했습니다.'}
+    }
+}
+
+export async function deleteRecordData(key, json) {
+    let result = 'done'
+    try {
+        const existingData = await AsyncStorage.getItem(key)
+        
+
+        if (existingData) {
+            const parsedData = JSON.parse(existingData)
+
+            for (const date in parsedData) {
+                parsedData[date] = parsedData[date].filter(item => JSON.stringify(item.endTime) !== JSON.stringify(json.endTime))
+            }
+
+            await AsyncStorage.setItem(key, JSON.stringify(parsedData))
+            
+            return result
+        } else {
+            result = '데이터를 찾지 못함'
+            return result
+        }
+
+    }
+    catch (e) {
+
     }
 }

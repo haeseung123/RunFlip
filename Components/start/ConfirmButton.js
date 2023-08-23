@@ -10,8 +10,8 @@ export default function ConfirmButton({ data }) {
     
     const savaRecord = async () => {
         const date = new Date()
-        const currentDate = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
-        // const currentDate = '2023-10-15'
+        // const currentDate = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
+        const currentDate = '2023-8-22'
 
         const userData = await getJsonData('profile')
         const userId = userData.value.userId
@@ -36,7 +36,7 @@ export default function ConfirmButton({ data }) {
             }
 
             // 모든 저장이 완료되면 홈으로 가기
-            // navigation.navigate('home')
+            navigation.navigate('home')
 
         }
         catch(e) {
