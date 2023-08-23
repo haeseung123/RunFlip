@@ -11,7 +11,6 @@ export default function RunningRecords() {
     const navigation = useNavigation()
     const isFocused = useIsFocused()
     const [recordData, setRecordData] = useState([])
-    // const [isLoading, setIsLoading] = useState(true)
 
 
     const getAllData = async () => {
@@ -21,9 +20,10 @@ export default function RunningRecords() {
     }
 
 
+
     useEffect(() => {
         getAllData()
-    }, [])
+    }, [isFocused])
 
 
     const groupDataByMonth  = (data) => {
@@ -32,12 +32,6 @@ export default function RunningRecords() {
         data.forEach(([date, items]) => {
             const [year, month] = date.split('-')
             const monthKey = `${year}년 ${parseInt(month)}월`
-
-            const dateObject = new Date(`${year}-${month}-01`)
-            const dayOfWeek = dateObject.getDay()
-
-            const dayOfWeekNames = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
-            const dayOfWeekName = dayOfWeekNames[dayOfWeek]
 
             if (!groupedData[monthKey]) {
                 groupedData[monthKey] = []
