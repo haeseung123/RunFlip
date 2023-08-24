@@ -5,8 +5,6 @@ import RunningRecords from "../../Components/record/RunningRecords";
 import Menubar from "../../Components/Menubar";
 
 export default function RecordsScreen() {
-    
-    
     return (
         <View style={{flex:1}}>
             <RunningRecords></RunningRecords>

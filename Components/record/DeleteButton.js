@@ -3,7 +3,6 @@ import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import { TouchableOpacity } from "react-native";
 import { FontAwesome } from '@expo/vector-icons';
 import { useNavigation } from "@react-navigation/native";
-import { CommonActions } from '@react-navigation/native';
 
 import { getJsonData } from "../../Funclibrary/Storage";
 import { deleteRecordData } from "../../Funclibrary/Storage";
