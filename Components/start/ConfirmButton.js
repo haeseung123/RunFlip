@@ -8,13 +8,17 @@ import moment from "moment";
 
 export default function ConfirmButton({ data }) {
     const navigation = useNavigation()
+    console.log(data)
+
+    useEffect(() => {
+        sumRecord()
+    }, [])
 
     const sumRecord = async () => {
         const {elapsedTime, totalDistance, calories} = data
 
         const userData = await getJsonData('profile')
         let {sumElapsedTime, sumDistance, sumCalories} = userData.value
-        // console.log(sumElapsedTime, sumDistance, sumCalories)
 
         sumElapsedTime = moment(sumElapsedTime, 'HH:mm:ss')
                         .add(moment.duration(elapsedTime))
@@ -23,9 +27,11 @@ export default function ConfirmButton({ data }) {
         const sumData = {
             ... userData.value,
             sumElapsedTime : sumElapsedTime,
-            sumDistance : sumDistance + totalDistance,
-            sumCalories : sumCalories + calories
+            sumDistance : (parseFloat(sumDistance) + parseFloat(totalDistance)).toFixed(2),
+            sumCalories : (parseFloat(sumCalories) + parseFloat(calories)).toFixed(2)
         }
+
+        // console.log(sumData)
 
         const controller = new AbortController()
         const { signal } = controller
@@ -87,9 +93,6 @@ export default function ConfirmButton({ data }) {
         }
     }
 
-    useEffect(() => {
-        sumRecord()
-    }, [])
 
     const CustomHeaderIcon = (props) => {
         return (
