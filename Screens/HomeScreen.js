@@ -12,7 +12,6 @@ export default function HomeScreen() {
     const [logined, setLogined] = useState(null)
     const [showLoading, setShowLoading] = useState(false)
 
-
     /**
      * 사용자 정보 초기화
      * @param {*} profile 
@@ -24,7 +23,6 @@ export default function HomeScreen() {
 
         if(result === 'done') {
             setLogined('성공')
-            navigation.setOptions(globalHeader)
         } else if(result === 'failed') {
             const { message } = saveResult
             alertMessage('안내', message)
@@ -61,9 +59,6 @@ export default function HomeScreen() {
                 signal
             })
 
-            //나중에 지워야지
-            console.log(user)
-            
             const json = await request.json()
             timeOver = false
 
@@ -89,7 +84,6 @@ export default function HomeScreen() {
                 ?
                 <View style={{flex: 1}}>
                 <HomeMain></HomeMain>
-                <Text>호오오오오오몸</Text>
                 <Menubar></Menubar>
                 </View>
                 :
