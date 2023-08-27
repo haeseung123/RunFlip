@@ -51,7 +51,7 @@ export default StyleSheet.create({
         alignItems: 'baseline'
     },
     distanceData: {
-        fontSize: normalizeSize(30),
+        fontSize: normalizeSize(35),
         fontWeight: 'bold'
     },
     twoRecordWrap: {

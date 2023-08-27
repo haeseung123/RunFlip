@@ -3,20 +3,28 @@ import { normalizeSize } from "../../Funclibrary/GlobalFunc";
 
 export default StyleSheet.create({
     container: {
-        flex: 0.16,
-        width: '100%',
-        backgroundColor: 'white'
+        flex: 0.210,
+        marginTop: normalizeSize(5),
+        backgroundColor: 'white',
+        alignItems: 'center'
     },
-    title: {
-        color: 'red',
+    text: {
+        width: normalizeSize(320),
         fontSize: normalizeSize(15),
         fontWeight: 'bold',
-        paddingTop: normalizeSize(10),
-        paddingLeft: normalizeSize(30)
+        marginTop: normalizeSize(20),
+        marginBottom: normalizeSize(5)
     },
-    recordWrap: {
+    innerItemWrap: {
+        backgroundColor: '#F5F8FF',
         flexDirection: 'row',
-        // justifyContent: 'space-around'
+        width: normalizeSize(320),
+        borderRadius: normalizeSize(10),
+        margin: normalizeSize(5)
+    },
+    noDataText: {
+        color: '#9E9E9E',
+        fontWeight: 'bold'
     }
 
 })
