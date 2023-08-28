@@ -107,7 +107,7 @@ export default function ControlPanel({setIsRunning, coordinates}) {
                         </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
-                    style={startScreenStyles.buttonStyle}
+                    style={startScreenStyles.buttonStyle2}
                     activeOpacity={.6}
                     onPress={handleStop}
                     >
