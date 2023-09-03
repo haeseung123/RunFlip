@@ -8,13 +8,13 @@
   <th>달리기</th>
   <tr>
     <td>
-      <img src="https://github.com/haeseung123/RunFlip/assets/106800437/7a0fdbc0-2256-445f-8174-fe0545b1a29e" widt="311" height="674">
+      <img src="https://github.com/haeseung123/RunFlip/assets/106800437/7a0fdbc0-2256-445f-8174-fe0545b1a29e" widt="246" height="533">
     </td>
     <td>
-      <img src="https://github.com/haeseung123/RunFlip/assets/106800437/6561a4f5-ca5e-4bda-b39f-f674ec75d55f" widt="311" height="674">
+      <img src="https://github.com/haeseung123/RunFlip/assets/106800437/6561a4f5-ca5e-4bda-b39f-f674ec75d55f" widt="246" height="533">
     </td>
     <td>
-      <img src="https://github.com/haeseung123/RunFlip/assets/106800437/66342da2-c844-452d-ace1-ccfdad029fc4" widt="311" height="674">
+      <img src="https://github.com/haeseung123/RunFlip/assets/106800437/66342da2-c844-452d-ace1-ccfdad029fc4" widt="246" height="533">
     </td>
   </tr>
   <th>전체기록</th>
@@ -22,13 +22,13 @@
   <th>마이페이지</th>
   <tr>
     <td>
-      <img src="https://github.com/haeseung123/RunFlip/assets/106800437/ce88a51c-02b4-44a3-974e-1a1c1410f4c0" widt="311" height="674">
+      <img src="https://github.com/haeseung123/RunFlip/assets/106800437/ce88a51c-02b4-44a3-974e-1a1c1410f4c0" widt="246" height="533">
     </td>
     <td>
-      <img src="https://github.com/haeseung123/RunFlip/assets/106800437/124a5210-7cf2-48be-a130-9fafa679573c" widt="311" height="674">
+      <img src="https://github.com/haeseung123/RunFlip/assets/106800437/124a5210-7cf2-48be-a130-9fafa679573c" widt="246" height="533">
     </td>
     <td>
-      <img src="https://github.com/haeseung123/RunFlip/assets/106800437/1c2d9a8b-d168-431c-a803-0578a76d9da8" widt="311" height="674">
+      <img src="https://github.com/haeseung123/RunFlip/assets/106800437/1c2d9a8b-d168-431c-a803-0578a76d9da8" widt="246" height="533">
     </td>
   </tr>
 </table>
