@@ -1,4 +1,7 @@
 # RunFlip
+
+![iPad mini 8 3 - 1](https://github.com/haeseung123/RunFlip/assets/106800437/df82d749-3a20-489f-9d32-bcb3fdab9880)
+
 런데이 애플리케이션에서 착안한 간단 러닝 기록앱
 
 <h3>전체 화면</h3>
