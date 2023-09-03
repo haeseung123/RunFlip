@@ -1,8 +1,14 @@
-# RunFlip
+<div align="center">
+  <h1>🏃🏻‍♀️RunFlip🏃🏻‍♂️</h1>
+</div>
 
-![iPad mini 8 3 - 1](https://github.com/haeseung123/RunFlip/assets/106800437/df82d749-3a20-489f-9d32-bcb3fdab9880)
+![iPad mini 8 3 - 1 (1)](https://github.com/haeseung123/RunFlip/assets/106800437/7bd587a0-0d9d-4332-8193-c20d28757318)
 
-런데이 애플리케이션에서 착안한 간단 러닝 기록앱
+🌟 런데이 애플리케이션에서 착안한 간단 러닝 기록앱
+
+> 러닝 데이터를 기록하고 날짜에 도장을 찍어줘요!
+> 
+> 얼마나 열심히 운동했는지 전체 기록을 알 수 있어요!
 
 <h3>전체 화면</h3>
 <table>
