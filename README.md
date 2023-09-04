@@ -12,7 +12,9 @@
 
 <h3>전체 화면</h3>
 
-![iPad mini 8 3 - 2](https://github.com/haeseung123/RunFlip/assets/106800437/6e09f900-e480-4fff-ba8a-dd7e9f270826)
+
+![iPad mini 8 3 - 2 (3)](https://github.com/haeseung123/RunFlip/assets/106800437/6447c279-8ab4-42f4-9fd6-883347e958f2)
+
 
 
 <br>
