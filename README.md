@@ -36,6 +36,63 @@
 
 <br>
 
+#### [위치정보 구독 중지 처리 문제]
+
+- 폴리 라인은 사용자가 이동하는 좌표 값이 배열로 쌓이고 해당 데이터들이 지도 상의 점으로 인식되어 선을 이어서 시각적으로 제공합니다.
+- 위치 정보 구독 함수를 사용하여 위치 정보를 구독하고, 위치 정보가 변경될 때 마다 좌표를 업데이트합니다.
+
+<details>
+<summary><b>주요 코드</b></summary>
+<div markdown="1">
+  
+~~~javascript
+
+const [locationSubscription, setLocationSubscription] = useState(null)
+
+useEffect(() => {
+  const handleLocationChange = (location) => {
+      if(isRunning) {
+          const {longitude, latitude} = location.coords
+          setCoordinates((prevCoordinates) => [...prevCoordinates, {longitude, latitude}])
+      }
+  }
+
+  const startLocationSubscription = async () => {
+      const subscription = await Location.watchPositionAsync(
+          { accuracy: Location.Accuracy.High, distanceInterval: 1 },
+          handleLocationChange
+      )
+      setLocationSubscription(subscription)
+  }
+
+  const stopLocationSubscription = () => {
+      if(locationSubscription) {
+          locationSubscription.remove()
+      }
+  }
+
+  if(isRunning) {
+      startLocationSubscription()
+  }
+  else {
+      stopLocationSubscription()
+  }
+}, [isRunning])
+
+~~~
+
+</div>
+</details>
+
+- 'locationSubscription'는 위치 정보를 감지하기 위해 사용되는 구독을 나타내는 변수로 Location.watchPositionAsync를 호출할 때 반환되는 구독 객체입니다.
+- remove라는 메서드가 있어 호출할 경우 해당 구독이 중지되고, 위치 정보 변경을 감지하지 않기 때문에 운동을 마치기 위한 필수 기능입니다.
+- 그러나 'locationSubscription' 변수에 할당 된 값이 'undefined'로 반환된 구독 객체가 정상적으로 할당되지 않아 remove 메서드가 동작하지 않았고, 운동을 마칠 수 없다는 것을 알게되었습니다.
+
+- 'Location.watchPositionAsync'는 위치 정보를 비동기적으로 가지고오는 함수임을 알게되어 await을 사용하여 동기적으로 처리할 수 있도록 하였습니다.
+- 또한 useEffect 내에서 처리하여 컴포넌트 렌더링 주기와 잘 통합될 수 있도록 하여 중지 구독 객체를 반환받아 이슈를 처리하였습니다.
+
+<br>
+
 <h4>2. 열심히 운동한 데이터를 통합해서 볼 수 있어요</h4>
 <img src="https://github.com/haeseung123/RunFlip/assets/106800437/909db329-bf07-4d90-a926-acd14cefac06" widt="246" height="533">
 <li>사용자의 프로필 데이터를 보여줍니다.</li>
